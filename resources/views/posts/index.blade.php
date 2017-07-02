@@ -34,7 +34,7 @@
 					<tr>
 						<td>{{ $post->id }}</td>
 						<td>{{ $post->title }}</td>
-						<td>{{ substr($post->body, 0, 50) }}{{ strlen($post->body) > 50 ? "..." : "" }}</td>
+						<td>{{ mb_substr($post->body, 0, 50) }}{{ mb_strlen($post->body) > 50 ? "..." : "" }}</td>
 						<td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
 						<td>{{ date('M j, Y', strtotime($post->updated_at)) }}</td>
 						<td><a class="btn btn-default" href="{{ route('posts.show', $post->id) }}" role="button">View</a></td>
