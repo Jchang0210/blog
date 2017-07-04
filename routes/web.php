@@ -14,10 +14,6 @@
 
 Route::middleware(['web'])->group(function () {
 	Auth::routes();
-
-	// Route::get('auth/login', 'Auth\LoginController@login');
-	// Route::post('auth/login', 'Auth\LoginController@postLogin');
-
 	Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 	Route::get('blog', ['as' => 'blog.index', 'uses' => 'BlogController@getIndex']);
 	Route::get('/', 'PagesController@getIndex');

@@ -20,11 +20,11 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>Title</th>
-						<th>body</th>
-						<th>create at</th>
-						<th>update at</th>
+						<th nowrap>#</th>
+						<th nowrap>Title</th>
+						<th nowrap>body</th>
+						<th nowrap>create at</th>
+						<th nowrap>update at</th>
 						<th></th>
 						<th></th>
 					</tr>
