@@ -44,7 +44,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-
         // validate the data
         $this->validate($request, array(
             'title' => 'required|max:50',

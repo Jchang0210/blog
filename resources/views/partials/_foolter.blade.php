@@ -1,3 +1,3 @@
-      <hr>
+<hr>
 
-      <p class="text-center">Copyright yuanhsun - All Rights Reserved</p>
+<p class="text-center">Copyright yuanhsun - All Rights Reserved</p>
