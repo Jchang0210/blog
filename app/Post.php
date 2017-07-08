@@ -7,5 +7,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Post extends Eloquent
 {
-    //
+	public function category() {
+		return $this->belongsTo('App\Category');
+    }
 }
