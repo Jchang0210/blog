@@ -26,7 +26,7 @@
 						<th nowrap>create at</th>
 						<th nowrap>update at</th>
 						<th></th>
-						<th></th>
+						{{-- <th></th> --}}
 					</tr>
 				</thead>
 				<tbody>
@@ -38,7 +38,7 @@
 						<td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
 						<td>{{ date('M j, Y', strtotime($post->updated_at)) }}</td>
 						<td><a class="btn btn-default" href="{{ route('posts.show', $post->id) }}" role="button">View</a></td>
-						<td><a class="btn btn-default" href="{{ route('posts.edit', $post->id) }}" role="button">Edit</a></td>
+						{{-- <td><a class="btn btn-default" href="{{ route('posts.edit', $post->id) }}" role="button">Edit</a></td> --}}
 					</tr>
 				@endforeach
 				</tbody>

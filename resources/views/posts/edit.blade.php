@@ -2,6 +2,11 @@
 
 @section('title', '| edit post')
 
+@section('stylesheets')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
+
+@endsection
+
 @section('content')
 	<div class="row">
 		<form action="{{ route('posts.update', $posts->id) }}" method="POST" role="form">
@@ -15,6 +20,20 @@
 
 					<label for="">Slug</label>
 					<input type="text"  name="slug" class="form-control" id="" placeholder="slug" value="{{ $posts->slug }}">
+
+					<label for="">Category</label>
+					<select name="category" id="input" class="form-control">
+						@foreach($categories as $category)
+						<option value="{{ $category->id }}" {{ $category->id == $posts->category->id ? "selected" : "" }}>{{ $category->name }}</option>
+						@endforeach
+					</select>
+
+					<label for="">Tag</label>
+					<select name="tag[]" id="input" class="form-control sel2-multi" multiple="multiple">
+						@foreach($tags as $tag)
+						<option value="{{ $tag->id }}">{{ $tag->name }}</option>
+						@endforeach
+					</select>
 
 					<label for="">Post body</label>
 					<textarea type="text" name="body" class="form-control" id="" rows="10" placeholder="Something new...">{{ $posts->body }}</textarea>
@@ -46,4 +65,15 @@
 		</form>
 	</div>
 
+@endsection
+
+
+
+@section('scripts')
+<script src="{{ asset('js/select2.min.js') }}"></script>
+
+<script type="text/javascript">
+	$(".sel2-multi").select2();
+	$(".sel2-multi").select2().val({!! $posts->tag()->allRelatedIds() !!}).trigger('change');
+</script>
 @endsection
