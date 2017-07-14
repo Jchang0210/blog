@@ -8,6 +8,6 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 class Tag extends Eloquent
 {
 	public function posts() {
-		return $this->belongToMany('App/Post');
+		return $this->belongsToMany('App\Post');
 	}
 }

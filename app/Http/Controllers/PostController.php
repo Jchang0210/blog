@@ -69,7 +69,12 @@ class PostController extends Controller
 
         $post->save();
 
-        $post->tag()->sync($request->tag, false);
+        if (isset($request->tag)) {
+            $post->tag()->sync($request->tag, false);
+        } else {
+            $post->tag()->sync(array());
+        }
+
 
         // session
         Session::flash('success', 'the blog post was success save!');
@@ -134,7 +139,12 @@ class PostController extends Controller
         // $post->tag_id = $request->input('tag');
 
         $post->save();
-        $post->tag()->sync($request->tag);
+
+        if (isset($request->tag)) {
+            $post->tag()->sync($request->tag);
+        } else {
+            $post->tag()->sync(array());
+        }
 
         // session
         Session::flash('success', 'the blog post was success updated!');
