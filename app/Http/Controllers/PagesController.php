@@ -42,7 +42,7 @@ class PagesController extends Controller
     	});
 
     	// session
-        Session::flash('success', 'You email was sent !');
+        Session::flash('success', 'Your email was sent !');
 
         // redirect to another page
         return redirect('/');

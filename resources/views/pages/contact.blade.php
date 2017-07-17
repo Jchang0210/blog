@@ -22,9 +22,7 @@
 
             <div class="form-group">
                 <label for="email">Message:</label>
-                <textarea name="message" id="message" class="form-control" rows="3">
-
-                </textarea>
+                <textarea name="message" id="message" class="form-control" rows="3"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

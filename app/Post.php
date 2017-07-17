@@ -14,4 +14,10 @@ class Post extends Eloquent
     public function tag() {
     	return $this->belongsToMany('App\Tag');
     }
+
+    public function comments() {
+    	return $this->hasMany('App\Comment');
+    }
+
+
 }
