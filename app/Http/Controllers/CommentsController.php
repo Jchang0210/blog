@@ -57,6 +57,7 @@ class CommentsController extends Controller
         $comment->email = $request->email;
         $comment->comment = $request->comment;
         $comment->approved = true;
+
         $comment->post()->associate($post);
         $comment->save();
 

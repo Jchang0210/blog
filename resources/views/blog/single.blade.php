@@ -2,6 +2,10 @@
 
 @section('title', '| ' . $posts->title)
 
+@section('stylesheets')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+@endsection
+
 @section('content')
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -42,11 +46,21 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		<h3 class="comment-title"><span class="glyphicon glyphicon-comment"></span> {{ $posts->comments->count() }} Comments</h3>
 		@foreach($posts->comments as $comment)
 			<div class="comment">
-				<p><strong>Name:</strong> {{ $comment->name }}</p>
-				<p><strong>Comment:</strong><br>{{ $comment->comment }}</p>
-				<hr>
+				<div class="author-info">
+					<img src="{{ "https://www.gravatar.com/avatar/" . md5(strtolower(trim($comment->email))) . "?s=50&d=retro"}}" class="author-image">
+
+					<div class="author-name">
+						<h4>{{ $comment->name }}</h4>
+						<p class="author-time">{{ date('F nS, Y - g:iA', strtotime($comment->created_at)) }}</p>
+					</div>
+				</div>
+
+				<div class="comment-content">
+					{{ $comment->comment }}
+				</div>
 			</div>
 		@endforeach
 		</div>
