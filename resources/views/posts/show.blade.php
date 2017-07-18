@@ -11,10 +11,9 @@
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 			<h1 class="word-wrap">{{ $posts->title }}</h1>
 
-			<p class="lead word-wrap">{{ $posts->body }}</p>
+			<p class="lead word-wrap">{!! $posts->body !!}</p>
 
 			<div class="tag">
-
 			@foreach ($posts->tag as $tag)
 				@if($tag->name == "PHP")
 					@php($colorCode = "#8E44AD")
@@ -36,37 +35,35 @@
 
 				<span class="label label-default" style="background-color: {{ $colorCode }};">{{ $tag->name }}</span>
 			@endforeach
-
-				<dir class="backend-comments" style="margin-top: 50px;">
-					<h3>Comments <small>{{ $posts->comments()->count() }} total</small></h3>
-
-
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Comment</th>
-								<th width="70px"></th>
-							</tr>
-						</thead>
-						<tbody>
-						@foreach($posts->comments as $comment)
-							<tr>
-								<td>{{ $comment->name }}</td>
-								<td>{{ $comment->email }}</td>
-								<td>{{ $comment->comment }}</td>
-								<td>
-									<a class="btn btn-xs btn-primary" href="{{ route('comments.edit', $comment->id ) }}" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
-									<a class="btn btn-xs btn-danger" href="{{ route('comments.delete', $comment->id ) }}" role="button"><span class="glyphicon glyphicon-trash"></span></a>
-								</td>
-							</tr>
-						@endforeach
-						</tbody>
-					</table>
-
-				</dir>
 			</div>
+
+			<dir class="backend-comments" style="padding-left: 0px; margin-top: 50px;">
+				<h3>Comments <small>{{ $posts->comments()->count() }} total</small></h3>
+
+				<table class="table table-hover word-wrap">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Comment</th>
+							<th width="70px"></th>
+						</tr>
+					</thead>
+					<tbody>
+					@foreach($posts->comments as $comment)
+						<tr>
+							<td>{{ $comment->name }}</td>
+							<td>{{ $comment->email }}</td>
+							<td>{{ $comment->comment }}</td>
+							<td>
+								<a class="btn btn-xs btn-primary" href="{{ route('comments.edit', $comment->id ) }}" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a class="btn btn-xs btn-danger" href="{{ route('comments.delete', $comment->id ) }}" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
+						</tr>
+					@endforeach
+					</tbody>
+				</table>
+			</dir>
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">

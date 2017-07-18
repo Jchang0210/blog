@@ -4,7 +4,24 @@
 
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
-
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=b0ejl9pjypi2jabx4rqs6ckg1kucwmcb57g8r6c7aa3ykk5j"></script>
+<script>
+	tinymce.init({
+		selector:'textarea',
+		menubar: false,
+		plugins: [
+			'advlist autolink lists link image charmap print preview anchor',
+			'searchreplace visualblocks code fullscreen',
+			'insertdatetime media table contextmenu paste code',
+			'textcolor'
+		],
+		toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor',
+		content_css: [
+			'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+			'//www.tinymce.com/css/codepen.min.css'
+		]
+	});
+</script>
 @endsection
 
 @section('content')
