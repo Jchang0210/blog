@@ -35,8 +35,37 @@
 				@endif
 
 				<span class="label label-default" style="background-color: {{ $colorCode }};">{{ $tag->name }}</span>
-
 			@endforeach
+
+				<dir class="backend-comments" style="margin-top: 50px;">
+					<h3>Comments <small>{{ $posts->comments()->count() }} total</small></h3>
+
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Comment</th>
+								<th width="70px"></th>
+							</tr>
+						</thead>
+						<tbody>
+						@foreach($posts->comments as $comment)
+							<tr>
+								<td>{{ $comment->name }}</td>
+								<td>{{ $comment->email }}</td>
+								<td>{{ $comment->comment }}</td>
+								<td>
+									<a class="btn btn-xs btn-primary" href="{{ route('comments.edit', $comment->id ) }}" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+									<a class="btn btn-xs btn-danger" href="{{ route('comments.delete', $comment->id ) }}" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+								</td>
+							</tr>
+						@endforeach
+						</tbody>
+					</table>
+
+				</dir>
 			</div>
 		</div>
 

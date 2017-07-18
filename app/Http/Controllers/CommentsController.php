@@ -12,28 +12,7 @@ class CommentsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $this->middleware('auth', ['except' => 'store']);
     }
 
     /**
@@ -68,17 +47,6 @@ class CommentsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -86,7 +54,8 @@ class CommentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('comments.edit')->withComment($comment);
     }
 
     /**
@@ -98,7 +67,31 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, array(
+            'comment' => 'required|min:5|max:2000',
+        ));
+
+        $comment = Comment::find($id);
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        Session::flash('success', 'the blog post was success save!');
+
+        return redirect()->route('posts.show', [$comment->post->id]);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $comment = Comment::find($id);
+        return view('comments.delete')->withComment($comment);
     }
 
     /**
@@ -109,6 +102,12 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $post_id = $comment->post->id;
+        $comment->delete();
+
+        Session::flash('success', 'the comment was delete!');
+
+        return redirect()->route('posts.show', [$post_id]);
     }
 }
