@@ -11,7 +11,7 @@ class PagesController extends Controller
 {
     public function getIndex() {
     	$posts = Post::orderBy('create_at', 'desc')->limit(4)->get();
-        return view('pages.welcome')->withPosts($posts);
+        return view('pages.home')->withPosts($posts);
     }
 
     public function getAbout() {

@@ -43,7 +43,6 @@ class CommentsController extends Controller
         Session::flash('success', 'the blog post was success save!');
 
         return redirect()->route('blog.single', [$post->slug]);
-
     }
 
     /**

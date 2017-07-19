@@ -3,7 +3,7 @@
 @section('title', '| Homepage')
 
 @section('content')
-    <div class="row">
+    <div class="row row-full">
         <div class="col-md-12">
             <div class="jumbotron">
                 <h1>Welcome to My Blog!</h1>
