@@ -9,12 +9,17 @@
 發文、即時回覆、標籤、Slug、頭像等基本功能
 
 php 需求：
+
 php-mongodb
 
 cd blog
+
 composer install
+
 cp .env.example .env
+
 php artisan key:generate
+
 vi .env DB_CONNECT=mongodb
 
 
