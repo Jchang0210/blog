@@ -12,6 +12,8 @@ php 需求：
 
 php-mongodb
 
+clone this project
+
 cd blog
 
 composer install
