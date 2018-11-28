@@ -21,7 +21,7 @@ vi .env DB_CONNECT=mongodb
 cd blog/vendor/laravel/framework/src/Illuminate/Foundation/Auth
 vi User.php
 
-<?php
+
 namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Auth\Authenticatable;
