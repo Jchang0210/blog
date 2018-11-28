@@ -21,5 +21,5 @@ vi .env DB_CONNECT=mongodb
 cd blog/vendor/laravel/framework/src/Illuminate/Foundation/Auth
 vi User.php
 
-修改 use Illuminate\Database\Eloquent\Model; >> use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+修改 use Illuminate\Database\Eloquent\Model >> use Jenssegers\Mongodb\Eloquent\Model as Eloquent
 class User extends Eloquent implements 
