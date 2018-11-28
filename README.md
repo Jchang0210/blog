@@ -20,8 +20,11 @@ cp .env.example .env
 
 php artisan key:generate
 
-vi .env DB_CONNECT=mongodb
+vi .env 
 
+DB_CONNECTION=mongodb
+
+DB_PORT=27017
 
 cd blog/vendor/laravel/framework/src/Illuminate/Foundation/Auth
 
