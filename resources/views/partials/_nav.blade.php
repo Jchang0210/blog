@@ -8,16 +8,16 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Title</a>
+			<a class="navbar-brand" href="/blog">Title</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li class="{{ Request::is('/') ? "active" : "" }}"><a href="/">Home</a></li>
-				<li class="{{ Request::is('blog') ? "active" : "" }}"><a href="/blog">Blog</a></li>
-				<li class="{{ Request::is('about') ? "active" : "" }}"><a href="/about">About</a></li>
-				<li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">Contact</a></li>
+				<li class="{{ Request::is('/') ? "active" : "" }}"><a href="/blog">Home</a></li>
+				<li class="{{ Request::is('blog') ? "active" : "" }}"><a href="/blog/blog">Blog</a></li>
+				<li class="{{ Request::is('about') ? "active" : "" }}"><a href="/blog/about">About</a></li>
+				<li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/blog/contact">Contact</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -27,7 +27,7 @@
 			@else
 				<li class="dropdown">
 
-					<a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="flase">Hello {{ Auth::user()->name }} <span class="caret"></span></a>
+					<a href="/blog" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="flase">Hello {{ Auth::user()->name }} <span class="caret"></span></a>
 
 					<ul class="dropdown-menu">
 						<li><a href="{{ route('posts.index') }}">Post</a></li>
